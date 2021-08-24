@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const app = express();
 const multer = require('multer');
 
-var registerRoute = require('./routes/register.route');
 var userRoute = require('./routes/user.route');
 
 const fileStorage = multer.diskStorage({
@@ -38,7 +37,8 @@ app.get('/', (req, res) => {
 app.use('/', (req, res, next) => {
     next();
 });
-app.use('/register', registerRoute);
+
+
 app.use('/user', userRoute);
 
 var port = 3000;
